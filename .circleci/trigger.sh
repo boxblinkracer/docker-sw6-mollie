@@ -3,6 +3,10 @@
 # export to temporary file to debug values
 cat <<EOT >> body.json
 {
+  "parameters":
+      {
+          "imgName": "boxblinkracer/shopware6-mollie"
+      }
 }
 EOT
 

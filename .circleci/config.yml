@@ -4,12 +4,16 @@ version: 2.1
 parameters:
   imgName:
     type: string
-    default: "boxblinkracer/shopware6-mollie"
 
 workflows:
 
   release_image:
 
+    when:
+      and:
+        - not:
+            # avoid that it automatically triggers on push
+            equal: [ "", << pipeline.parameters.imgName >> ]
     jobs:
       - build-arm64:
           name: build-arm64
